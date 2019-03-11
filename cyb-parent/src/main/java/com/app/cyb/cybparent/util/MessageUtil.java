@@ -23,13 +23,45 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MessageUtil {
 
 
+    public static void main(String[] args){
+        System.out.println(getVerificationCode());
+    }
+    public static int PHONENUMBER_LENGTH=11;
+    public static int CACHE_TIME=15;
+    private static char[] codeArray={'0','1','2','3','4','5','6','7','8','9'};
+    private static Random random=new Random();
+
+    /**
+     *
+     * @param account
+     * @return 0 : 电话号码 1:邮箱号码 2: 格式错误
+     */
+    public static AccountType accountType(String account){
+        if(account==null||account.equals(""))
+            return AccountType.ERROR;
+        else if(account.length()==PHONENUMBER_LENGTH&&!Pattern.matches(".*\\D.*", account))
+            return AccountType.PHONENUMBER;
+        else if(Pattern.matches("\\w+@\\w+.\\w+", account))
+            return AccountType.EMAIL;
+        else return AccountType.ERROR;
+    }
+
+    public static String getVerificationCode(){
+        StringBuilder stringBuilder=new StringBuilder();
+        for(int i=0;i<6;i++)
+            stringBuilder.append(codeArray[random.nextInt(10)]);
+        return stringBuilder.toString();
+    }
 
 
-    public static boolean sendEmail(JavaMailSender mailSender, String to, int key){
+    public static boolean sendEmail(JavaMailSender mailSender, String to, String key){
         try {
             SpringTemplateEngine thymeleaf=new SpringTemplateEngine();
             MimeMessage message=mailSender.createMimeMessage();
@@ -51,7 +83,7 @@ public class MessageUtil {
 
 
     //手机短信
-    public static boolean sendPhoneMessage(String phoneNumber,int key){//phoneNumber name
+    public static boolean sendPhoneMessage(String phoneNumber,String key){//phoneNumber name
         final String product="Dysmsapi";
         final String domain = "dysmsapi.aliyuncs.com";
 

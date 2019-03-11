@@ -1,10 +1,16 @@
 package com.app.cyb.cybparent;
 
+import com.app.cyb.cybparent.util.CybInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
@@ -12,12 +18,16 @@ import javax.mail.Session;
 import java.util.Properties;
 
 @SpringBootApplication
-public class CybParentApplication {
+public class CybParentApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
         SpringApplication.run(CybParentApplication.class, args);
     }
 
+    @Bean
+    public RestTemplate restTemplate(){
+        return  new RestTemplate();
+    }
 
     @Bean
     public JavaMailSender mailSender(){
@@ -44,5 +54,15 @@ public class CybParentApplication {
         mailSender.setSession(mailSession);
         mailSender.setDefaultEncoding("UTF-8");
         return  mailSender;
+    }
+
+    @Bean
+    public HandlerInterceptor getHandlerInterceptor(){
+        return  new CybInterceptor();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(getHandlerInterceptor()).addPathPatterns("/**");
     }
 }
