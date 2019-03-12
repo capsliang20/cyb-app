@@ -4,6 +4,8 @@ import com.app.cyb.cybparent.util.CybInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.client.RestTemplate;
@@ -24,10 +26,10 @@ public class CybParentApplication implements WebMvcConfigurer {
         SpringApplication.run(CybParentApplication.class, args);
     }
 
-    @Bean
-    public RestTemplate restTemplate(){
-        return  new RestTemplate();
-    }
+//    @Bean
+//    public StringRedisTemplate restTemplate(){
+//        return  new StringRedisTemplate();
+//    }
 
     @Bean
     public JavaMailSender mailSender(){

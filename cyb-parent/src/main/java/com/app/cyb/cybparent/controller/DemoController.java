@@ -5,6 +5,9 @@ import com.app.cyb.cybparent.api.DemoService;
 import com.app.cyb.cybparent.entity.Demo;
 import com.app.cyb.cybparent.util.MessageUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -24,8 +27,8 @@ public class DemoController {
     @Resource
     JavaMailSender mailSender;
 
-    @Resource
-    RestTemplate restTemplate;
+    @Autowired
+    StringRedisTemplate redisTemplate;
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    Map resultMap(HttpSession httpSession) {

@@ -24,6 +24,8 @@ import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,6 +39,7 @@ public class MessageUtil {
     public static int CACHE_TIME=15;
     private static char[] codeArray={'0','1','2','3','4','5','6','7','8','9'};
     private static Random random=new Random();
+    public static ExecutorService executorService=Executors.newCachedThreadPool();
 
     /**
      *

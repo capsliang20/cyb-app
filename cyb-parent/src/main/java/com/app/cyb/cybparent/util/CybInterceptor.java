@@ -1,5 +1,6 @@
 package com.app.cyb.cybparent.util;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -39,7 +40,6 @@ public class CybInterceptor implements HandlerInterceptor {
 //        System.out.println(request.getContextPath());
 //        System.out.println(request.getServletPath());
 //
-//        response.sendRedirect("/cyb_app/user/verification?account=root");
 
         return true;
     }

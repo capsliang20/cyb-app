@@ -9,6 +9,7 @@ import com.app.cyb.cybparent.util.MessageUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -22,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -124,20 +127,26 @@ public class UserController {
         data.put("account", account);
         if (code == null || code.equals("")) {
             code = MessageUtil.getVerificationCode();
+            final String sendCode=code;
             if (accountType == AccountType.ERROR)
                 return ReturnType.failure("error account: " + account);
             if (accountType == AccountType.PHONENUMBER) {
-                if (MessageUtil.sendPhoneMessage(account, code)) {
-                    redisTemplate.opsForValue().set(account, code, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
-                    data.put("code", code);
-                    return ReturnType.ok("success", data);
-                }
+                Future<?> future = MessageUtil.executorService.submit(() -> {
+                    MessageUtil.sendPhoneMessage(account, sendCode);
+                });
+                redisTemplate.opsForValue().set(account, code, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
+                data.put("code", code);
+                return ReturnType.ok("success", data);
+
             } else if (accountType == AccountType.EMAIL) {
-                if (MessageUtil.sendEmail(mailSender, account, code)) {
-                    redisTemplate.opsForValue().set(account, code, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
-                    data.put("code", code);
-                    return ReturnType.ok("success", data);
-                }
+                MessageUtil.executorService.submit(()->{
+                    MessageUtil.sendEmail(mailSender, account, sendCode);
+                });
+
+                redisTemplate.opsForValue().set(account, code, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
+                data.put("code", code);
+                return ReturnType.ok("success", data);
+
             }
         }
         data.put("code", code);
