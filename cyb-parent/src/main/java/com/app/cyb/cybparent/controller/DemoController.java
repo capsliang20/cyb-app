@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@Controller
 @Slf4j
 @RequestMapping(value = "demo")
 public class DemoController {
@@ -30,13 +31,17 @@ public class DemoController {
     @Autowired
     StringRedisTemplate redisTemplate;
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    Map resultMap(HttpSession httpSession) {
-//        System.out.println(JSON.toJSONString(httpSession));
-//        System.out.println(httpSession.isNew());
-//        httpSession.invalidate();
-//        return new HashMap();
-//    }
+    @RequestMapping(value = "index",method = RequestMethod.GET)
+    String resultMap(HttpSession httpSession) {
+        return "index";
+    }
+
+
+    @RequestMapping(value = "test",method = RequestMethod.GET)
+    @ResponseBody
+    String test(HttpSession httpSession) {
+        return "test";
+    }
 
 //    @RequestMapping(value = "demo",method = RequestMethod.GET)
 //    Demo queryDemo(@RequestParam("id") Integer id){
