@@ -26,25 +26,25 @@ public class CybInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         log.info("{} get into the system.",session.getId());
-        String account = redisTemplate.opsForValue().get(session.getId());
-
-        if(account==null||account.equals("")) {         //未登录状态
-            String path=request.getServletPath();
-            if(path.equals("/")) {   //访问主页,直接放行
-                log.info("{} is visiting the index",session.getId());
-                return true;
-            }else if(Pattern.matches("/user/.*", path)){ //调用登录注册相关接口，放行
-                log.info("{} is visiting {}",session.getId(),path );
-                return true;
-            }
-            log.info("account is null, please log in or register! ");   //未登录态访问其他接口，转向主页
-            response.sendRedirect("/cyb_app");
-            //redisTemplate.opsForValue().set(session.getId(), "unknown", MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
-        }
-        else {
-            log.info("account: {} active",account);
-            redisTemplate.opsForValue().set(session.getId(), account, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
-        }
+//        String account = redisTemplate.opsForValue().get(session.getId());
+//
+//        if(account==null||account.equals("")) {         //未登录状态
+//            String path=request.getServletPath();
+//            if(path.equals("/")) {   //访问主页,直接放行
+//                log.info("{} is visiting the index",session.getId());
+//                return true;
+//            }else if(Pattern.matches("/user/.*", path)){ //调用登录注册相关接口，放行
+//                log.info("{} is visiting {}",session.getId(),path );
+//                return true;
+//            }
+//            log.info("account is null, please log in or register! ");   //未登录态访问其他接口，转向主页
+//            response.sendRedirect("/cyb_app");
+//            //redisTemplate.opsForValue().set(session.getId(), "unknown", MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
+//        }
+//        else {
+//            log.info("account: {} active",account);
+//            redisTemplate.opsForValue().set(session.getId(), account, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
+//        }
 
 
 //        System.out.println(request.getContextPath());
