@@ -46,6 +46,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Integer update(User user) {
+        return userMapper.updateInfo(user);
+    }
+
+    @Override
     public Integer updatePassword(Integer id, String password) {
         return userMapper.updatePassword(id, password);
     }

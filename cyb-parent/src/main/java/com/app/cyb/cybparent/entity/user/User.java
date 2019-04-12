@@ -12,5 +12,7 @@ public class User {
     private String name;
     private String account;
     private String password;
+    private String introduction;
+    private String imageAddress;
 
 }
