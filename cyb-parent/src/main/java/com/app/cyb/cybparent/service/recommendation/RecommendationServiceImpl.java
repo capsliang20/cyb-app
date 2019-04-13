@@ -2,7 +2,6 @@ package com.app.cyb.cybparent.service.recommendation;
 
 import com.app.cyb.cybparent.api.recommendation.RecommendationService;
 import com.app.cyb.cybparent.entity.recommendation.Article;
-import com.app.cyb.cybparent.entity.recommendation.SArticle;
 import com.app.cyb.cybparent.mapper.recommendation.RecommendationMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,13 +19,13 @@ public class RecommendationServiceImpl implements RecommendationService{
     RecommendationMapper recommendationMapper;
 
     @Override
-    public List<SArticle> article_recommendation(Integer user_id){
+    public List<Article> article_recommendation(Integer user_id){
         List<Integer> article_id = recommendationMapper.articleidByUserID(user_id);
-        List<SArticle> articles = new ArrayList<>();
+        List<Article> articles = new ArrayList<>();
         for(int i= 0; i < article_id.size();i++){
             Article article = recommendationMapper.articleByID(article_id.get(i));
             String module_name = recommendationMapper.moduleNameByID(article.getModule_id());
-            articles.add(new SArticle(article.getId(),article.getTitle(),article.getModule_id(),module_name));
+            articles.add(new Article(article.getId(),article.getTitle(),article.getModule_id(),module_name));
         }
         return articles;
     }
