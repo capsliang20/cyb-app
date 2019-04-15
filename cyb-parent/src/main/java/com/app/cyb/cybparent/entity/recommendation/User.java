@@ -4,16 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Project {
+public class User {
     private Integer id;
+    private String name;
+    private String introduction;
     private String image_address;
-    private String company;
-    private Date establishtime;
-    private Integer module_id;
-    private String module_name;
 }
