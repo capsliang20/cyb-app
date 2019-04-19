@@ -38,11 +38,11 @@ public class DemoController {
 //        return new HashMap();
 //    }
 
-//    @RequestMapping(value = "demo",method = RequestMethod.GET)
-//    Demo queryDemo(@RequestParam("id") Integer id){
-//        log.info("query demo info with param id={}",id);
-//        return demoService.selectDemo(id);
-//    }
+    @RequestMapping(value = "demo",method = RequestMethod.GET)
+    Demo queryDemo(@RequestParam("id") Integer id){
+        log.info("query demo info with param id={}",id);
+        return demoService.selectDemo(id);
+    }
 //
 //    @RequestMapping(value = "email",method = RequestMethod.GET)
 //    String queryDemo(){

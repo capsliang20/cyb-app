@@ -20,11 +20,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-solr</artifactId>
-                <version>${spring.data.solr.version}</version>
-            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -59,10 +55,7 @@
             <artifactId>solr-solrj</artifactId>
             <version>7.7.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-solr</artifactId>
-        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
