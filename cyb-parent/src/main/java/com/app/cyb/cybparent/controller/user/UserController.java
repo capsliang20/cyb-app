@@ -14,10 +14,13 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -54,7 +57,7 @@ public class UserController {
         Map data = new HashMap();
         String verifyCode = redisTemplate.opsForValue().get(account);
         if (code != null && code.equals(verifyCode)) {
-            User user = new User(null, name, account, password);
+            User user = new User(null, name, account, password,"",MessageUtil.NET_PATH+"default.png");
             Integer userId = userService.insertUser(user);
             if (userId != null && userId != 0) {
                 redisTemplate.opsForValue().set(httpServletRequest.getSession().getId(), account, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
@@ -65,7 +68,15 @@ public class UserController {
             } else
                 return ReturnType.failure("account: " + account + " already exists!");
         } else
-            return ReturnType.failure("validation failure");
+            return ReturnType.failure("验证失败");
+    }
+
+    @RequestMapping(value = "update",method = RequestMethod.GET)
+    ReturnType update(@Param("id") Integer id,@Param("name") String name,@Param("introduction") String introduction,@Param("imageAddress") String imageAddress){
+        log.info("update user info : id={}, name={}, introduction={}, imageAddress={}",id,name,introduction,imageAddress );
+        User user=new User(id, name, null, null, introduction, imageAddress);
+        userService.update(user);
+        return ReturnType.ok("更新成功");
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
@@ -73,18 +84,18 @@ public class UserController {
         log.info("user login. account={}, password={}, code={}", account, password, code);
         Map data = new HashMap();
         String verifyCode = redisTemplate.opsForValue().get(account);
-        User user = null;
+        User user = new User();
         if (code != null && code.equals(verifyCode)) {
             log.info("{} login with code.", account);
             user = userService.userLogin(account, null);
             if (user == null || user.getId() == null)
-                return ReturnType.failure("login failure, verification code error");
+                return ReturnType.failure("登录失败，验证码错误!");
 
         } else {
             log.info("{} login with password.", account);
             user = userService.userLogin(account, password);
             if (user == null || user.getId() == null)
-                return ReturnType.failure("login failure, password error");
+                return ReturnType.failure("登录失败,密码错误!");
 
         }
 
@@ -93,7 +104,9 @@ public class UserController {
         data.put("userId", user.getId());
         data.put("account", user.getAccount());
         data.put("name", user.getName());
-        return ReturnType.ok("login successful", data);
+        data.put("introduction", user.getIntroduction());
+        data.put("imageAddress", user.getImageAddress());
+        return ReturnType.ok("登录成功!", data);
 
     }
 
@@ -104,7 +117,7 @@ public class UserController {
         log.info("account: {} logout.",account);
         redisTemplate.delete(session.getId());
         httpServletRequest.getSession().invalidate();
-        return ReturnType.ok("logout successful");
+        return ReturnType.ok("注销成功!");
     }
 
 
@@ -126,14 +139,14 @@ public class UserController {
             code = MessageUtil.getVerificationCode();
             final String sendCode=code;
             if (accountType == AccountType.ERROR)
-                return ReturnType.failure("error account: " + account);
+                return ReturnType.failure("用户名格式不规范: " + account);
             if (accountType == AccountType.PHONENUMBER) {
                 Future<?> future = MessageUtil.executorService.submit(() -> {
                     MessageUtil.sendPhoneMessage(account, sendCode);
                 });
                 redisTemplate.opsForValue().set(account, code, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
                 data.put("code", code);
-                return ReturnType.ok("success", data);
+                return ReturnType.ok("发送成功!", data);
 
             } else if (accountType == AccountType.EMAIL) {
                 MessageUtil.executorService.submit(()->{
@@ -142,12 +155,30 @@ public class UserController {
 
                 redisTemplate.opsForValue().set(account, code, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
                 data.put("code", code);
-                return ReturnType.ok("success", data);
+                return ReturnType.ok("发送成功!", data);
 
             }
         }
         data.put("code", code);
-        return ReturnType.ok("success", data);
+        return ReturnType.ok("发送成功!", data);
+    }
+
+
+    @RequestMapping(value = "file",method = RequestMethod.POST)
+    ReturnType test(@RequestParam("file")MultipartFile multipartFile){
+//        System.out.println(JSON.toJSONString(multipartFile));
+        Map resultMap=new HashMap();
+        try {
+            //未判断是否为图片
+            System.out.println(MessageUtil.USER_DIR_TMP_PATH+multipartFile.getOriginalFilename());
+            multipartFile.transferTo(Paths.get(MessageUtil.USER_DIR_TMP_PATH,multipartFile.getOriginalFilename()));
+            resultMap.put("netPath", MessageUtil.NET_PATH+multipartFile.getOriginalFilename());
+            return ReturnType.ok("上传成功",resultMap );
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ReturnType.failure("上传失败");
+        }
+
     }
 
 
