@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WebTest</display-name>
+  <servlet>
+    <servlet-name>DepartInsertAct</servlet-name>
+    <servlet-class>com.action.DepartInsertAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetStaffinDepartAct</servlet-name>
+    <servlet-class>com.action.GetStaffinDepartAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DepartSelectSingleAct</servlet-name>
+    <servlet-class>com.action.DepartSelectSingleAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DepartUpdateAct</servlet-name>
+    <servlet-class>com.action.DepartUpdateAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DepartDeleteAct</servlet-name>
+    <servlet-class>com.action.DepartDeleteAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionInsertAct</servlet-name>
+    <servlet-class>com.action.PositionInsertAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionDeleteAct</servlet-name>
+    <servlet-class>com.action.PositionDeleteAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionUpdateAct</servlet-name>
+    <servlet-class>com.action.PositionUpdateAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetStaffinPositionAct</servlet-name>
+    <servlet-class>com.action.GetStaffinPositionAct</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionSelectSingleAct</servlet-name>
+    <servlet-class>com.action.PositionSelectSingleAct</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>DepartInsertAct</servlet-name>
+    <url-pattern>/DepartInsertAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetStaffinDepartAct</servlet-name>
+    <url-pattern>/GetStaffinDepartAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartSelectSingleAct</servlet-name>
+    <url-pattern>/DepartSelectSingleAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartUpdateAct</servlet-name>
+    <url-pattern>/DepartUpdateAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartDeleteAct</servlet-name>
+    <url-pattern>/DepartDeleteAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionInsertAct</servlet-name>
+    <url-pattern>/PositionInsertAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionDeleteAct</servlet-name>
+    <url-pattern>/PositionDeleteAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionUpdateAct</servlet-name>
+    <url-pattern>/PositionUpdateAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetStaffinPositionAct</servlet-name>
+    <url-pattern>/GetStaffinPositionAct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionSelectSingleAct</servlet-name>
+    <url-pattern>/PositionSelectSingleAct</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
