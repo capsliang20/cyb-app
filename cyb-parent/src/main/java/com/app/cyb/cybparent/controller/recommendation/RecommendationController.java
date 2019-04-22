@@ -40,7 +40,7 @@ public class RecommendationController {
         Map data = new HashMap();
         List<Article> articles = recommendationService.article_recommendation(user_id);
         if (articles.size() > 0) {
-            data.put("articles:", articles);
+            data.put("articles", articles);
             return ReturnType.ok("success", data);
         }else{
             return ReturnType.failure("failure");
@@ -54,7 +54,7 @@ public class RecommendationController {
         Map data = new HashMap();
         List<Project> projects = recommendationService.project_recommendation(user_id);
         if (projects.size() > 0) {
-            data.put("projects:", projects);
+            data.put("projects", projects);
             return ReturnType.ok("success", data);
         }else{
             return ReturnType.failure("failure");
@@ -67,7 +67,7 @@ public class RecommendationController {
         Map data = new HashMap();
         List<User> users_rmd = recommendationService.user_recommendation(user_id);
         if (users_rmd.size() > 0) {
-            data.put("users:", users_rmd);
+            data.put("users", users_rmd);
             return ReturnType.ok("success", data);
         }else{
             return ReturnType.failure("failure");

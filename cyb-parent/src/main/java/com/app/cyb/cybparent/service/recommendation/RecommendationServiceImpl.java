@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 @Transactional
 public class RecommendationServiceImpl implements RecommendationService{
-
+    //通过用户的ID user_id，获取个性化推荐，包括article project user三种
     @Resource
     RecommendationMapper recommendationMapper;
 
