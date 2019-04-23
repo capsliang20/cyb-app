@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <servlet>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <display-name>DepartmentManager</display-name>
+    <description>department management</description>
+    <servlet-class>com.action.DepartmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UsersServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.action.UsersServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DepartmentChangeServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.action.DepartmentChangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionChangeServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.action.PositionChangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetDepartChangeInfoServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.action.GetDepartChangeInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetPositionChangeInfoServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.action.GetPositionChangeInfoServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <url-pattern>/DepartmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UsersServlet</servlet-name>
+    <url-pattern>/UsersServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartmentChangeServlet</servlet-name>
+    <url-pattern>/DepartmentChangeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionChangeServlet</servlet-name>
+    <url-pattern>/PositionChangeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetDepartChangeInfoServlet</servlet-name>
+    <url-pattern>/GetDepartChangeInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetPositionChangeInfoServlet</servlet-name>
+    <url-pattern>/GetPositionChangeInfoServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

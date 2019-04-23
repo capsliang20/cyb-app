@@ -13,7 +13,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -54,7 +53,7 @@ public class UserController {
      */
     @RequestMapping(value = "register", method = RequestMethod.GET)
     ReturnType register(@Param("name") String name, @Param("account") String account, @Param("password") String password, @Param("code") String code, HttpServletRequest httpServletRequest) {
-        log.info("user register. name={}, account={}, password={}, code={}", name, account, password, code);
+            log.info("user register. name={}, account={}, password={}, code={}", name, account, password, code);
         Map data = new HashMap();
         String verifyCode = redisTemplate.opsForValue().get(account);
         if (code != null && code.equals(verifyCode)) {
@@ -112,7 +111,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "logout" ,method = RequestMethod.GET)
-    @ResponseBody
     ReturnType logout(HttpServletRequest httpServletRequest){
         HttpSession session = httpServletRequest.getSession();
         String account = redisTemplate.opsForValue().get(session.getId());

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-@Controller
+@RestController
 @Slf4j
 @RequestMapping(value = "demo")
 public class DemoController {
@@ -37,12 +36,21 @@ public class DemoController {
     @Autowired
     StringRedisTemplate redisTemplate;
 
-    @RequestMapping(value = "index",method = RequestMethod.GET)
-    String resultMap(HttpSession httpSession) {
-        return "index";
+//    @RequestMapping(method = RequestMethod.GET)
+//    Map resultMap(HttpSession httpSession) {
+//        System.out.println(JSON.toJSONString(httpSession));
+//        System.out.println(httpSession.isNew());
+//        httpSession.invalidate();
+//        return new HashMap();
+//    }
+
+<<<<<<< HEAD
+    @RequestMapping(value = "demo",method = RequestMethod.GET)
+    Demo queryDemo(@RequestParam("id") Integer id){
+        log.info("query demo info with param id={}",id);
+        return demoService.selectDemo(id);
     }
-
-
+=======
 //    @RequestMapping(value = "file",method = RequestMethod.POST)
 //    @ResponseBody
 //    ReturnType test(@RequestParam("file")MultipartFile multipartFile){
@@ -65,6 +73,7 @@ public class DemoController {
 //        log.info("query demo info with param id={}",id);
 //        return demoService.selectDemo(id);
 //    }
+>>>>>>> 678fa5e63f9b68a14137601f668cf13f59a3907c
 //
 //    @RequestMapping(value = "email",method = RequestMethod.GET)
 //    String queryDemo(){
