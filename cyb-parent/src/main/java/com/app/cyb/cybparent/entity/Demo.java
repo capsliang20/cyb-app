@@ -3,13 +3,18 @@ package com.app.cyb.cybparent.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.solr.client.solrj.beans.Field;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Demo {
-    private Integer id;
+    @Field
+    private Integer demo_id;
+    @Field
     private String name;
-    private Long phoneNumber;
+    @Field
+    private String phoneNumber;
+    @Field
     private String email;
 }

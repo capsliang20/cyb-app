@@ -12,6 +12,7 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.google.gson.Gson;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -22,6 +23,9 @@ import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -29,17 +33,39 @@ import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Slf4j
 public class MessageUtil {
 
 
-    public static void main(String[] args){
-        System.out.println(getVerificationCode());
+    public static void main(String[] args) throws IOException {
+      // System.out.println(Paths.get(USER_DIR_TMP_PATH).toFile().mkdir());
     }
+
+
+
     public static int PHONENUMBER_LENGTH=11;
     public static int CACHE_TIME=15;
     private static char[] codeArray={'0','1','2','3','4','5','6','7','8','9'};
     private static Random random=new Random();
+    public static String USER_DIR_TMP_PATH=System.getProperty("user.dir")+"/tmp/";
+    public static String NET_PATH="www.qwwaq.com:8088/";
     public static ExecutorService executorService=Executors.newCachedThreadPool();
+
+    static {
+        Path path=Paths.get(USER_DIR_TMP_PATH);
+        log.info("USER_DIR_TMP_PATH={}",USER_DIR_TMP_PATH );
+        if(!path.toFile().exists()){
+            log.info("USER_DIR_TMP_PATH mkdir");
+            path.toFile().mkdir();
+        }
+    }
+
+   public static void isTmpDirExist(){
+       Path path=Paths.get(USER_DIR_TMP_PATH);
+       if(!path.toFile().exists()){
+           path.toFile().mkdir();
+       }
+   }
 
     /**
      *

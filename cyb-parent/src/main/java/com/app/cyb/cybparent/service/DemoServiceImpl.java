@@ -17,7 +17,7 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public Integer insertDemo(Demo demo) {
         demoMapper.insertDemo(demo);
-        return demo.getId();
+        return demo.getDemo_id();
     }
 
     @Override

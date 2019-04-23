@@ -11,4 +11,5 @@ public class Article {
     private Integer id;
     private String title;
     private Integer module_id;
+    private String module_name;
 }
