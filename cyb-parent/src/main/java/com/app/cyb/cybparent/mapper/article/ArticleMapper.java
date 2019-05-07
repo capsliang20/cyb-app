@@ -20,12 +20,15 @@ public interface ArticleMapper {
     @ResultType(List.class)
     List<Article> queryIdByUserId(@Param("userId")String userId);
 
-    @Select("select id,title,content,user_id from article where id =#{id}")
+    @Select("select id,title,content,user_id,click_rate,module_id,follow_rate from article where id =#{id}")
     @Results(id = "demoObjMap",value = {
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "title",property = "title",jdbcType = JdbcType.VARCHAR,javaType = String.class),
             @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
-            @Result(column = "user_id",property = "userId",jdbcType = JdbcType.VARCHAR,javaType = String.class)
+            @Result(column = "user_id",property = "userId",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "click_rate",property = "clickRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "module_id",property = "moduleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "follow_rate",property = "followRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class)
     })
     Article queryArticle(@Param("id") Integer id);
 

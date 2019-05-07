@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Article {
+
+public class Comment {
     private Integer id;
-    private String title;
-    private String content;
-    private Integer userId;
-    private Integer clickRate;
-    private Integer moduleId;
-    private Integer followRate;
+    private Integer articleId;
+    private Integer type;
+    private Integer articleCommentId;
+    private Integer content;
+    private Integer time;
 }

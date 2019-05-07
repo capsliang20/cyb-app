@@ -25,7 +25,7 @@ public class CybInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         log.info("{} get into the system.",session.getId());
-<<<<<<< HEAD
+
         String account = redisTemplate.opsForValue().get(session.getId());
 
         if(account==null||account.equals("")) {
@@ -36,7 +36,7 @@ public class CybInterceptor implements HandlerInterceptor {
             log.info("account: {} active",account);
             redisTemplate.opsForValue().set(session.getId(), account, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
         }
-=======
+
 //        String account = redisTemplate.opsForValue().get(session.getId());
 //
 //        if(account==null||account.equals("")) {         //未登录状态
@@ -56,7 +56,6 @@ public class CybInterceptor implements HandlerInterceptor {
 //            log.info("account: {} active",account);
 //            redisTemplate.opsForValue().set(session.getId(), account, MessageUtil.CACHE_TIME, TimeUnit.MINUTES);
 //        }
->>>>>>> 678fa5e63f9b68a14137601f668cf13f59a3907c
 
 
 //        System.out.println(request.getContextPath());

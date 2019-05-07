@@ -44,13 +44,11 @@ public class DemoController {
 //        return new HashMap();
 //    }
 
-<<<<<<< HEAD
     @RequestMapping(value = "demo",method = RequestMethod.GET)
     Demo queryDemo(@RequestParam("id") Integer id){
         log.info("query demo info with param id={}",id);
         return demoService.selectDemo(id);
     }
-=======
 //    @RequestMapping(value = "file",method = RequestMethod.POST)
 //    @ResponseBody
 //    ReturnType test(@RequestParam("file")MultipartFile multipartFile){
@@ -73,7 +71,6 @@ public class DemoController {
 //        log.info("query demo info with param id={}",id);
 //        return demoService.selectDemo(id);
 //    }
->>>>>>> 678fa5e63f9b68a14137601f668cf13f59a3907c
 //
 //    @RequestMapping(value = "email",method = RequestMethod.GET)
 //    String queryDemo(){
