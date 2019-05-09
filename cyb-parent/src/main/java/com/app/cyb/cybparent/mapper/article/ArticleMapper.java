@@ -32,9 +32,9 @@ public interface ArticleMapper {
     })
     Article queryArticle(@Param("id") Integer id);
 
-    @Update("update article set content =#{content} where id =#{id}")
-    Integer updateContent(@Param("id") Integer id,@Param("content")String content);
+    @Update("update articles set content =#{content},title =#{title},module_id =#{moduleId} where id =#{id}")
+    Integer updateArticle(Article article);
 
-    @Delete("delete from article where id =#{id}")
+    @Delete("delete from articles where id =#{id}")
     Integer removeArticle(@Param("id") Integer id);
 }

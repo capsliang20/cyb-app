@@ -8,10 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="3e9f6525-74e5-41d5-9936-90e9fd32651e" name="Default Changelist" comment="Default Changelist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ArticleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/articleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/articleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/projectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/projectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/lmc/LMCController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/lmc/LMCController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ArticleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ArticleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ArticleServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ArticleServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/cyb-parent/target/" />
@@ -38,11 +43,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/entity/article/Project.java">
+      <file leaf-file-name="ProjectMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+            <state relative-caret-position="330">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectServicelmpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,8 +70,8 @@
       <file leaf-file-name="projectController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/projectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+            <state relative-caret-position="263">
+              <caret line="110" column="32" lean-forward="true" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,23 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java">
+      <file leaf-file-name="ProjectService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articleController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/articleController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="106" column="57" lean-forward="true" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+            <state relative-caret-position="190">
+              <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,19 +147,19 @@
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/util/CybInterceptor.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/entity/Demo.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/entity/user/User.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ArticleServicelmpl.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ArticleService.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/CommentServicelmpl.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/entity/article/Comment.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ArticleMapper.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/entity/article/Project.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/commentController.java" />
-        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/lmc/LMCController.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/CommentMapper.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/lmc/LMCController.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/articleController.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ArticleMapper.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ArticleService.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ArticleServicelmpl.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java" />
+        <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java" />
         <option value="$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/projectController.java" />
       </list>
     </option>
@@ -247,6 +252,28 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cybparent" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cyb-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cyb-app" type="462c0819:PsiDirectoryNode" />
+              <item name="cyb-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cybparent" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cyb-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cyb-app" type="462c0819:PsiDirectoryNode" />
+              <item name="cyb-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cybparent" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -259,6 +286,17 @@
               <item name="cybparent" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cyb-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cyb-app" type="462c0819:PsiDirectoryNode" />
+              <item name="cyb-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cybparent" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="lmc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cyb-app" type="b2602c69:ProjectViewProjectNode" />
@@ -301,6 +339,17 @@
               <item name="cybparent" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
               <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cyb-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cyb-app" type="462c0819:PsiDirectoryNode" />
+              <item name="cyb-parent" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cybparent" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cyb-app" type="b2602c69:ProjectViewProjectNode" />
@@ -427,7 +476,7 @@
       <workItem from="1557280211189" duration="10858000" />
       <workItem from="1557312316144" duration="1853000" />
       <workItem from="1557317830485" duration="4471000" />
-      <workItem from="1557366605057" duration="10397000" />
+      <workItem from="1557366605057" duration="15438000" />
     </task>
     <task id="LOCAL-00001" summary="lmc commit">
       <created>1552441188986</created>
@@ -450,11 +499,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557386710431</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Default Changelist">
+      <created>1557390532381</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557390532381</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169257000" />
+    <option name="totallyTimeSpent" value="174298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -480,7 +536,7 @@
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14055637" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3163539" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31836462" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.3297587" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -544,16 +600,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java</url>
-          <line>21</line>
-          <properties class="com.app.cyb.cybparent.service.article.ProjectServicelmpl" method="queryProject">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="3" />
     </breakpoint-manager>
   </component>
@@ -645,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/DemoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/solr-7.7.0/solr-7.7.0/server/solr/abc/conf/managed-schema" />
     <entry file="file://$PROJECT_DIR$/cyb-parent/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -671,20 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
           <caret line="63" selection-start-line="63" selection-end-line="65" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/user/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/user/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -765,43 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ArticleServicelmpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ArticleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/commentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="39" column="34" lean-forward="true" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/CommentServicelmpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -822,43 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ArticleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/lmc/LMCController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="144" column="2" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/CommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/entity/article/Project.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -869,10 +820,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java">
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/lmc/LMCController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="444">
+          <caret line="144" column="2" lean-forward="true" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/DemoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/commentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/user/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ArticleServicelmpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1091#1092#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ArticleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ArticleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -881,8 +902,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/articleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="106" column="57" lean-forward="true" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+        <state relative-caret-position="248">
+          <caret line="92" column="38" lean-forward="true" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/mapper/article/ProjectMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/api/article/ProjectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/service/article/ProjectServicelmpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -891,8 +942,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cyb-parent/src/main/java/com/app/cyb/cybparent/controller/article/projectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+        <state relative-caret-position="263">
+          <caret line="110" column="32" lean-forward="true" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,5 +1,5 @@
 package com.app.cyb.cybparent.controller.lmc;
-
+/*
 import com.alibaba.fastjson.JSON;
 import com.app.cyb.cybparent.api.DemoService;
 import com.app.cyb.cybparent.entity.Demo;
@@ -142,3 +142,4 @@ public class LMCController {
     }
 
 }
+*/

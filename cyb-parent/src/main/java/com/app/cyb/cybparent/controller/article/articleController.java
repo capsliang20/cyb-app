@@ -91,7 +91,7 @@ public class articleController {
         article.setContent(content);
         article.setTitle(title);
         article.setModuleId(moduleId);
-        ArticleService.insertArticle(article);
+        ArticleService.updateArticle(article);
         return ReturnType.ok("success", data);
     };
 

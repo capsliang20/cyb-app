@@ -29,6 +29,11 @@ public class ProjectServicelmpl implements ProjectService{
     };
 
     @Override
+    public Integer updateProject(Project project){
+        return projectMapper.updateProject(project);
+    };
+
+    @Override
     public Integer removeProject(Integer projectId){
         return projectMapper.removeProject(projectId);
     };

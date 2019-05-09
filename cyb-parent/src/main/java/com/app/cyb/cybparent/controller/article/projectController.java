@@ -109,7 +109,7 @@ public class projectController {
         project.setAddress(address);
         project.setAbstr(abstr);
         project.setState(state);
-        ProjectService.insertProject(project);
+        ProjectService.updateProject(project);
         return ReturnType.ok("success", data);
     };
 

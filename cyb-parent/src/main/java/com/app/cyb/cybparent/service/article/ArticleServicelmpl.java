@@ -36,8 +36,8 @@ public class ArticleServicelmpl implements ArticleService {
     };
 
     @Override
-    public Integer updateContent(Integer id,String content){
-        return articleMapper.updateContent(id, content);
+    public Integer updateArticle(Article article){
+        return articleMapper.updateArticle(article);
     };
 
     @Override
