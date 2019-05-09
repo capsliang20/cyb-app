@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ProjectService {
     Integer insertProject(Project project);
-    List<Integer> queryIdByUserId(Integer userId);
+    List<Project> queryByUserId(Integer userId);
     Project queryProject(Integer id);
     Integer removeProject(Integer id);
     Integer updateProject(Project project);

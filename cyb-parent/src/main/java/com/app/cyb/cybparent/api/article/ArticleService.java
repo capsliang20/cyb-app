@@ -5,7 +5,8 @@ import java.util.List;
 public interface ArticleService {
     Integer insertArticle(Article article);
     List<Integer> queryIdByTitle(String title);
-    List<Integer> queryIdByUserId(Integer userId);
+    List<Article> queryByUserId(Integer userId);
+    List<Article> queryByModuleId(Integer moduleId);
     Article queryArticle(Integer id);
     Integer updateArticle(Article article);
     Integer removeArticle(Integer id);

@@ -24,8 +24,8 @@ public class ProjectServicelmpl implements ProjectService{
     };
 
     @Override
-    public List<Integer> queryIdByUserId(Integer userId){
-        return projectMapper.queryIdByUserId(userId);
+    public List<Project> queryByUserId(Integer userId){
+        return projectMapper.queryByUserId(userId);
     };
 
     @Override

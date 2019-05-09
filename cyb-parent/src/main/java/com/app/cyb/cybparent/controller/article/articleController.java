@@ -54,6 +54,7 @@ public class articleController {
         data.put("moduleId", article.getModuleId());
         data.put("followRate", article.getFollowRate());
         data.put("commentList",CommentService.queryComment(id));
+        data.put("code", 1);
 
         return ReturnType.ok("success", data);
     };
@@ -62,6 +63,7 @@ public class articleController {
     ReturnType createArticle(@Param("userId") Integer userId, HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
         data.put("userId", userId);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
@@ -70,6 +72,7 @@ public class articleController {
         Map data = new HashMap();
         Article article = new Article(0, title, content, userId,0,moduleId,0);
         ArticleService.insertArticle(article);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
@@ -81,6 +84,7 @@ public class articleController {
         data.put("title", article.getTitle());
         data.put("content", article.getContent());
         data.put("moduleId", article.getModuleId());
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
@@ -92,26 +96,42 @@ public class articleController {
         article.setTitle(title);
         article.setModuleId(moduleId);
         ArticleService.updateArticle(article);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
     @RequestMapping(value = "delete", method = RequestMethod.GET)
     ReturnType delete(@Param("id") Integer id,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
         ArticleService.removeArticle(id);
+        data.put("code", 1);
         return ReturnType.ok("success");
     }
 
     @RequestMapping(value = "follow", method = RequestMethod.GET)
     ReturnType follow(@Param("id") Integer id,@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
         Article article = ArticleService.queryArticle(id);
         article.setFollowRate(article.getFollowRate()+1);
+        data.put("code", 1);
         return ReturnType.ok("success");
     }
 
     @RequestMapping(value = "manageArticle", method = RequestMethod.GET)
     ReturnType manageArticle(@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
-        ArticleService.queryArticle(userId);
+        List<Article> articleList = ArticleService.queryByUserId(userId);
+        data.put("articleList", articleList);
+        data.put("code", 1);
+        return ReturnType.ok("success", data);
+    }
+
+    @RequestMapping(value = "showArticleByModuleId", method = RequestMethod.GET)
+    ReturnType showArticleByModuleId(@Param("moduleId") Integer moduleId,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        List<Article> articleList = ArticleService.queryByUserId(moduleId);
+        data.put("articleList", articleList);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     }
 

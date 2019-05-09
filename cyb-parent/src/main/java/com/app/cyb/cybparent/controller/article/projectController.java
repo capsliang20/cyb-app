@@ -41,6 +41,7 @@ public class projectController {
         Project project = new Project();
         project = ProjectService.queryProject(id);
         project.setClickRate(project.getClickRate()+1);
+        data.put("code", 1);
         data.put("id", project.getId());
         data.put("imageAddress", project.getAddress());
         data.put("company", project.getCompany());
@@ -58,6 +59,7 @@ public class projectController {
     @RequestMapping(value = "createProject", method = RequestMethod.GET)
     ReturnType createProject(@Param("userId") Integer userId, HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
+        data.put("code", 1);
         data.put("userId", userId);
         return ReturnType.ok("success", data);
     };
@@ -74,6 +76,7 @@ public class projectController {
         Map data = new HashMap();
         Project project = new Project(0,imageAddress,company,website,establishTime,address,abstr,state,0,userId,0,0);
         ProjectService.insertProject(project);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
@@ -88,6 +91,7 @@ public class projectController {
         data.put("address", project.getAddress());
         data.put("abstr", project.getAbstr());
         data.put("state", project.getState());
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
@@ -110,26 +114,33 @@ public class projectController {
         project.setAbstr(abstr);
         project.setState(state);
         ProjectService.updateProject(project);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
     @RequestMapping(value = "delete", method = RequestMethod.GET)
     ReturnType delete(@Param("id") Integer id,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
         ProjectService.removeProject(id);
+        data.put("code", 1);
         return ReturnType.ok("success");
     }
 
     @RequestMapping(value = "focus", method = RequestMethod.GET)
     ReturnType follow(@Param("id") Integer id,@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
         Project project = ProjectService.queryProject(id);
         project.setFocusRate(project.getFocusRate()+1);
+        data.put("code", 1);
         return ReturnType.ok("success");
     }
 
     @RequestMapping(value = "manageProject", method = RequestMethod.GET)
     ReturnType manageArticle(@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
-        ProjectService.queryProject(userId);
+        List<Project> articleList = ProjectService.queryByUserId(userId);
+        data.put("articleList", articleList);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     }
 }

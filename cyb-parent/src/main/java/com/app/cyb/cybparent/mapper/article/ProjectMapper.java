@@ -16,8 +16,22 @@ public interface ProjectMapper {
     Integer insertProject(Project project);
 
     @Select("select id from articles where user_id=#{userId}")
+    @Results(id = "demoObjMap",value = {
+            @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "image_address",property = "imageAddress",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "company",property = "company",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "website",property = "website",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "establishtime",property = "establishTime",jdbcType = JdbcType.DATE,javaType = Date.class),
+            @Result(column = "address",property = "address",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "abstract",property = "abstr",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "state",property = "state",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "module_id",property = "moduleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "user_id",property = "userId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "focus_rate",property = "focusRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "click_rate",property = "clickRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class)
+    })
     @ResultType(List.class)
-    List<Integer> queryIdByUserId(@Param("userId")Integer userId);
+    List<Project> queryByUserId(@Param("userId")Integer userId);
 
     @Select("select id,image_address,company,website,establishtime,address,abstract,state,module_id,user_id,focus_rate,click_rate from projects where id =#{id}")
     @Results(id = "demoObjMap",value = {

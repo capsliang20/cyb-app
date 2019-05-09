@@ -46,6 +46,7 @@ public class commentController {
         Comment comment = new Comment(0,id,0,0,content,time);
         CommentService.insertComment(comment);
         data.put("time", time);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
@@ -56,6 +57,7 @@ public class commentController {
         Comment comment = new Comment(0,0,1,id,content,time);
         CommentService.insertComment(comment);
         data.put("time", time);
+        data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
