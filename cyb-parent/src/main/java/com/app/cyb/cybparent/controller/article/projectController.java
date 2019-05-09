@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,5 +35,101 @@ public class projectController {
     @Resource
     ProjectService ProjectService;
 
+    @RequestMapping(value = "showProjectDetails", method = RequestMethod.GET)
+    ReturnType showProjectDetails(@Param("id") Integer id, HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        Project project = new Project();
+        project = ProjectService.queryProject(id);
+        project.setClickRate(project.getClickRate()+1);
+        data.put("id", project.getId());
+        data.put("imageAddress", project.getAddress());
+        data.put("company", project.getCompany());
+        data.put("website", project.getWebsite());
+        data.put("establishTime", project.getEstablishTime());
+        data.put("address", project.getAddress());
+        data.put("abstr", project.getAbstr());
+        data.put("state", project.getState());
+        data.put("userId", project.getUserId());
+        data.put("focusRate", project.getFocusRate());
+        data.put("clickRate", project.getClickRate());
+        return ReturnType.ok("success", data);
+    };
 
+    @RequestMapping(value = "createProject", method = RequestMethod.GET)
+    ReturnType createProject(@Param("userId") Integer userId, HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        data.put("userId", userId);
+        return ReturnType.ok("success", data);
+    };
+
+    @RequestMapping(value = "newProjectSubmit", method = RequestMethod.POST)
+    ReturnType newProjectSubmit(@Param("imageAddress") String imageAddress,
+                                @Param("company") String company,
+                                @Param("website") String website,
+                                @Param("establishTime") Date establishTime,
+                                @Param("address") String address,
+                                @Param("abstr") String abstr,
+                                @Param("state") String state,
+                                @Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        Project project = new Project(0,imageAddress,company,website,establishTime,address,abstr,state,0,userId,0,0);
+        ProjectService.insertProject(project);
+        return ReturnType.ok("success", data);
+    };
+
+    @RequestMapping(value = "updateProject", method = RequestMethod.GET)
+    ReturnType updateProject(@Param("id") Integer id,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        Project project = ProjectService.queryProject(id);
+        data.put("id", project.getId());
+        data.put("imageAddress", project.getImageAddress());
+        data.put("company", project.getCompany());
+        data.put("website", project.getWebsite());
+        data.put("address", project.getAddress());
+        data.put("abstr", project.getAbstr());
+        data.put("state", project.getState());
+        return ReturnType.ok("success", data);
+    };
+
+    @RequestMapping(value = "projectSubmit", method = RequestMethod.POST)
+    ReturnType projectSubmit(@Param("id") Integer id,
+                             @Param("imageAddress") String imageAddress,
+                             @Param("company") String company,
+                             @Param("website") String website,
+                             @Param("establishTime") Date establishTime,
+                             @Param("address") String address,
+                             @Param("abstr") String abstr,
+                             @Param("state") String state,
+                             @Param("userId") String userId,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        Project project = ProjectService.queryProject(id);
+        project.setImageAddress(imageAddress);
+        project.setCompany(company);
+        project.setWebsite(website);
+        project.setAddress(address);
+        project.setAbstr(abstr);
+        project.setState(state);
+        ProjectService.insertProject(project);
+        return ReturnType.ok("success", data);
+    };
+
+    @RequestMapping(value = "delete", method = RequestMethod.GET)
+    ReturnType delete(@Param("id") Integer id,HttpServletRequest httpServletRequest) {
+        ProjectService.removeProject(id);
+        return ReturnType.ok("success");
+    }
+
+    @RequestMapping(value = "focus", method = RequestMethod.GET)
+    ReturnType follow(@Param("id") Integer id,@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
+        Project project = ProjectService.queryProject(id);
+        project.setFocusRate(project.getFocusRate()+1);
+        return ReturnType.ok("success");
+    }
+
+    @RequestMapping(value = "manageProject", method = RequestMethod.GET)
+    ReturnType manageArticle(@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
+        Map data = new HashMap();
+        ProjectService.queryProject(userId);
+        return ReturnType.ok("success", data);
+    }
 }

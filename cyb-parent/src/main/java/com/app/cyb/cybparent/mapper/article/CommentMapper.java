@@ -23,6 +23,7 @@ public interface CommentMapper {
             @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
             @Result(column = "time",property = "time",jdbcType = JdbcType.DATE,javaType = Date.class)
     })
+    @ResultType(List.class)
     List<Comment> queryComment(@Param("articleId") Integer articleId);
 
 

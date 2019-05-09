@@ -59,10 +59,9 @@ public class articleController {
     };
 
     @RequestMapping(value = "createArticle", method = RequestMethod.GET)
-    ReturnType createArticle(@Param("id") Integer id, HttpServletRequest httpServletRequest) {
+    ReturnType createArticle(@Param("userId") Integer userId, HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
-        data.put("id", id);
-        //data.put("commentList", comment);
+        data.put("userId", userId);
         return ReturnType.ok("success", data);
     };
 
@@ -103,7 +102,7 @@ public class articleController {
     }
 
     @RequestMapping(value = "follow", method = RequestMethod.GET)
-    ReturnType follow(@Param("id") Integer id,HttpServletRequest httpServletRequest) {
+    ReturnType follow(@Param("id") Integer id,@Param("userId") Integer userId,HttpServletRequest httpServletRequest) {
         Article article = ArticleService.queryArticle(id);
         article.setFollowRate(article.getFollowRate()+1);
         return ReturnType.ok("success");
