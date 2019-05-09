@@ -21,12 +21,12 @@ public class ArticleServicelmpl implements ArticleService {
     };
 
     @Override
-    public List<Article> queryIdByTitle(String title){
+    public List<Integer> queryIdByTitle(String title){
         return articleMapper.queryIdByTitle(title);
     };
 
     @Override
-    public List<Article> queryIdByUserId(String userId){
+    public List<Integer> queryIdByUserId(Integer userId){
         return articleMapper.queryIdByUserId(userId);
     };
 

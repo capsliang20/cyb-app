@@ -9,18 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
-/*
+
 public class CommentServicelmpl implements CommentService {
     @Resource
     CommentMapper commentMapper;
 
     @Override
     public Integer insertComment(Comment comment){
-
+        return commentMapper.insertComment(comment);
     };
 
     @Override
-    public
-
+    public List<Comment> queryComment(Integer articleId){
+        return commentMapper.queryComment(articleId);
+    };
 }
-*/

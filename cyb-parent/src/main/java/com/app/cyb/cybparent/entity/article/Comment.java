@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,6 +15,6 @@ public class Comment {
     private Integer articleId;
     private Integer type;
     private Integer articleCommentId;
-    private Integer content;
-    private Integer time;
+    private String content;
+    private Date time;
 }
