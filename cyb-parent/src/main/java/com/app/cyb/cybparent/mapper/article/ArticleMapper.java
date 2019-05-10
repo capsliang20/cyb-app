@@ -17,7 +17,7 @@ public interface ArticleMapper {
     List<Integer> queryIdByTitle(@Param("title") String title);
 
     @Select("select id,title,content,user_id,click_rate,module_id,follow_rate from articles where user_id=#{userId}")
-    @Results(id = "demoObjMap",value = {
+    /*@Results(id = "demoObjMap",value = {
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "title",property = "title",jdbcType = JdbcType.VARCHAR,javaType = String.class),
             @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
@@ -25,20 +25,21 @@ public interface ArticleMapper {
             @Result(column = "click_rate",property = "clickRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "module_id",property = "moduleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "follow_rate",property = "followRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class)
-    })
+    })*/
     @ResultType(List.class)
     List<Article> queryByUserId(@Param("userId")Integer userId);
 
     @Select("select id,title,content,user_id,click_rate,module_id,follow_rate from articles where module_id=#{moduleId}")
-    @Results(id = "demoObjMap",value = {
-            @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
-            @Result(column = "title",property = "title",jdbcType = JdbcType.VARCHAR,javaType = String.class),
-            @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
-            @Result(column = "user_id",property = "userId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
-            @Result(column = "click_rate",property = "clickRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
-            @Result(column = "module_id",property = "moduleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
-            @Result(column = "follow_rate",property = "followRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class)
-    })
+//    @Results(id = "demoObjMap",value = {
+//            @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+//            @Result(column = "title",property = "title",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+//            @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+//            @Result(column = "user_id",property = "userId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+//            @Result(column = "click_rate",property = "clickRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+//            @Result(column = "module_id",property = "moduleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+//            @Result(column = "follow_rate",property = "followRate",jdbcType = JdbcType.INTEGER,javaType = Integer.class)
+//    })
+    //@ResultMap(value = "demoObjMap")
     @ResultType(List.class)
     List<Article> queryByModuleId(@Param("moduleId")Integer moduleId);
 

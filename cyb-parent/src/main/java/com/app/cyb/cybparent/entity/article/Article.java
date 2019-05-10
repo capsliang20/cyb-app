@@ -3,6 +3,7 @@ package com.app.cyb.cybparent.entity.article;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.lang.Enum;
 
 @Data
 @AllArgsConstructor
@@ -16,3 +17,10 @@ public class Article {
     private Integer moduleId;
     private Integer followRate;
 }
+
+
+
+
+
+
+
