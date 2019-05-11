@@ -6,8 +6,9 @@ public interface ArticleService {
     Integer insertArticle(Article article);
     List<Integer> queryIdByTitle(String title);
     List<Article> queryByUserId(Integer userId);
-    List<Article> queryByModuleId(Integer moduleId);
+    List<Article> queryByModuleName(String moduleName);
     Article queryArticle(Integer id);
     Integer updateArticle(Article article);
     Integer removeArticle(Integer id);
+    String moduleName(Integer moduleId);
 }

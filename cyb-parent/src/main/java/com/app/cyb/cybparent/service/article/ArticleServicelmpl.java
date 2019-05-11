@@ -31,8 +31,13 @@ public class ArticleServicelmpl implements ArticleService {
     };
 
     @Override
-    public List<Article> queryByModuleId(Integer userId){
-        return articleMapper.queryByModuleId(userId);
+    public List<Article> queryByModuleName(String moduleName){
+        return articleMapper.queryByModuleName(moduleName);
+    };
+
+    @Override
+    public String moduleName(Integer moduleId){
+        return articleMapper.moduleName(moduleId);
     };
 
     @Override

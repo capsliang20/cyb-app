@@ -15,7 +15,7 @@ public interface CommentMapper {
     Integer insertComment(Comment comment);
 
     @Select("select id,article_id,type,article_comment_id,content,time from article_comment where article_id =#{articleId}")
-    @Results(id = "demoObjMap",value = {
+    @Results(id = "commentMap",value = {
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "article_id",property = "articleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "type",property = "type",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
@@ -23,7 +23,7 @@ public interface CommentMapper {
             @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
             @Result(column = "time",property = "time",jdbcType = JdbcType.DATE,javaType = Date.class)
     })
-    @ResultType(List.class)
+//    @ResultType(List.class)
     List<Comment> queryComment(@Param("articleId") Integer articleId);
 
 

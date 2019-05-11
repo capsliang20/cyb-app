@@ -14,7 +14,7 @@ public class Article {
     private String content;
     private Integer userId;
     private Integer clickRate;
-    private Integer moduleId;
+    private String moduleName;
     private Integer followRate;
 }
 

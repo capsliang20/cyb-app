@@ -44,14 +44,14 @@ public class articleController {
     @RequestMapping(value = "showArticleDetails", method = RequestMethod.GET)
     ReturnType showArticleDetails(@Param("id") Integer id, HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
-        Article article = new Article(id, "", "", 0,0,0,0);
+        Article article = new Article(id, "", "", 0,0,"",0);
         article = ArticleService.queryArticle(id);
         article.setClickRate(article.getClickRate()+1);
         data.put("userId", article.getUserId());
         data.put("title", article.getTitle());
         data.put("content", article.getContent());
         data.put("clickRate", article.getClickRate());
-        data.put("moduleId", article.getModuleId());
+        data.put("moduleName", article.getModuleName());
         data.put("followRate", article.getFollowRate());
         data.put("commentList",CommentService.queryComment(id));
         data.put("code", 1);
@@ -68,9 +68,9 @@ public class articleController {
     };
 
     @RequestMapping(value = "newArticleSubmit", method = RequestMethod.POST)
-    ReturnType newArticleSubmit(@Param("userId") Integer userId,@Param("content") String content,@Param("title") String title,@Param("moduleId") Integer moduleId,HttpServletRequest httpServletRequest) {
+    ReturnType newArticleSubmit(@Param("userId") Integer userId,@Param("content") String content,@Param("title") String title,@Param("moduleName") String moduleName,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
-        Article article = new Article(0, title, content, userId,0,moduleId,0);
+        Article article = new Article(0, title, content, userId,0,moduleName,0);
         ArticleService.insertArticle(article);
         data.put("code", 1);
         return ReturnType.ok("success", data);
@@ -83,18 +83,18 @@ public class articleController {
         data.put("id", article.getId());
         data.put("title", article.getTitle());
         data.put("content", article.getContent());
-        data.put("moduleId", article.getModuleId());
+        data.put("moduleName", article.getModuleName());
         data.put("code", 1);
         return ReturnType.ok("success", data);
     };
 
     @RequestMapping(value = "articleSubmit", method = RequestMethod.POST)
-    ReturnType articleSubmit(@Param("id") Integer id,@Param("content") String content,@Param("title") String title,@Param("moduleId") Integer moduleId,HttpServletRequest httpServletRequest) {
+    ReturnType articleSubmit(@Param("id") Integer id,@Param("content") String content,@Param("title") String title,@Param("moduleName") String moduleName,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
         Article article = ArticleService.queryArticle(id);
         article.setContent(content);
         article.setTitle(title);
-        article.setModuleId(moduleId);
+        article.setModuleName(moduleName);
         ArticleService.updateArticle(article);
         data.put("code", 1);
         return ReturnType.ok("success", data);
@@ -126,10 +126,10 @@ public class articleController {
         return ReturnType.ok("success", data);
     }
 
-    @RequestMapping(value = "showArticleByModuleId", method = RequestMethod.GET)
-    ReturnType showArticleByModuleId(@Param("moduleId") Integer moduleId,HttpServletRequest httpServletRequest) {
+    @RequestMapping(value = "showArticleByModuleName", method = RequestMethod.GET)
+    ReturnType showArticleByModuleName(@Param("moduleName") String moduleName,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
-        List<Article> articleList = ArticleService.queryByUserId(moduleId);
+        List<Article> articleList = ArticleService.queryByModuleName(moduleName);
         data.put("articleList", articleList);
         data.put("code", 1);
         return ReturnType.ok("success", data);
