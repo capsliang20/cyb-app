@@ -12,6 +12,7 @@ import java.util.Date;
 
 public class Comment {
     private Integer id;
+    private Integer userId;
     private Integer articleId;
     private Integer type;
     private Integer articleCommentId;

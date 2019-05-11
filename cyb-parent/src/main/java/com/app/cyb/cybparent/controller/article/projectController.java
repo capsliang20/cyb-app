@@ -100,11 +100,9 @@ public class projectController {
                              @Param("imageAddress") String imageAddress,
                              @Param("company") String company,
                              @Param("website") String website,
-                             @Param("establishTime") Date establishTime,
                              @Param("address") String address,
                              @Param("abstr") String abstr,
-                             @Param("state") String state,
-                             @Param("userId") String userId,HttpServletRequest httpServletRequest) {
+                             @Param("state") String state, HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
         Project project = ProjectService.queryProject(id);
         project.setImageAddress(imageAddress);
@@ -131,6 +129,7 @@ public class projectController {
         Map data = new HashMap();
         Project project = ProjectService.queryProject(id);
         project.setFocusRate(project.getFocusRate()+1);
+        ProjectService.updateProject(project);
         data.put("code", 1);
         return ReturnType.ok("success");
     }

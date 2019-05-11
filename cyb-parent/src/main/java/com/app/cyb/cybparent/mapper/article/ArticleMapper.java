@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface ArticleMapper {
-    @Insert("insert into articles (title,content,user_id,module_name) values (#{title},#{content},#{userId},#{moduleName})")
+    @Insert("insert into articles (title,content,user_id,module_id,click_rate,follow_rate,module_name) values (#{title},#{content},#{userId},0,0,0,#{moduleName})")
     @Options(useGeneratedKeys = true,keyProperty = "id")
     Integer insertArticle(Article article);
 
@@ -28,6 +28,10 @@ public interface ArticleMapper {
     })
     //@ResultType(List.class)
     List<Article> queryByUserId(@Param("userId")Integer userId);
+
+    @Select("select id from article_comments where article_id =#{articleId}")
+    @ResultType(List.class)
+    List<Integer> commentIdByArticleId(@Param("articleId") Integer articleId);
 
     @Select("select id,title,content,user_id,click_rate,module_name,follow_rate from articles where module_name=#{moduleName}")
 //    @Results(id = "demoObjMap",value = {
@@ -50,7 +54,7 @@ public interface ArticleMapper {
     @Select("select name from modules where id =#{id}")
     String moduleName(Integer moduleId);
 
-    @Update("update articles set content =#{content},title =#{title},module_id =#{moduleId} where id =#{id}")
+    @Update("update articles set content =#{content},title =#{title},module_name =#{moduleName},follow_rate =#{followRate},click_rate =#{clickRate} where id =#{id}")
     Integer updateArticle(Article article);
 
     @Delete("delete from articles where id =#{id}")
