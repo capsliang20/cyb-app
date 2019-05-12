@@ -57,4 +57,41 @@ public class RecommendationServiceImpl implements RecommendationService{
         return users_rmd;
     }
 
+    @Override
+    public List<User> user_hot(){
+        List<Integer> userid_rmd = recommendationMapper.topHotUserId();
+        List<User> users_rmd = new ArrayList<>();
+        for(int i=0; i < 5; ++i){
+            User user = recommendationMapper.userByID(userid_rmd.get(i));
+            users_rmd.add(user);
+        }
+        return users_rmd;
+    }
+
+    @Override
+    public List<Article> article_hot(){
+        List<Integer> article_id = recommendationMapper.topHotArticleId();
+        List<Article> articles = new ArrayList<>();
+        for(int i= 0; i < 10; ++i){
+            Article article = recommendationMapper.articleByID(article_id.get(i));
+            String module_name = recommendationMapper.moduleNameByID(article.getModule_id());
+            article.setModule_name(module_name);
+            articles.add(article);
+        }
+        return articles;
+    }
+
+    @Override
+    public List<Project> project_hot(){
+        List<Integer> project_id = recommendationMapper.topHotProjectId();
+        List<Project> projects = new ArrayList<>();
+        for(int i=0; i < 10; ++i){
+            Project project = recommendationMapper.projectByID(project_id.get(i));
+            String module_name = recommendationMapper.moduleNameByID(project.getModule_id());
+            project.setModule_name(module_name);
+            projects.add(project);
+        }
+        return projects;
+    }
+
 }

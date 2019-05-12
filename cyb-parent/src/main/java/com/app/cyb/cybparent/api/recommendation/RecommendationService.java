@@ -12,4 +12,7 @@ public interface RecommendationService {
     List<Article> article_recommendation(Integer user_id);
     List<Project> project_recommendation(Integer user_id);
     List<User> user_recommendation(Integer user_id);
+    List<Article> article_hot();
+    List<Project> project_hot();
+    List<User> user_hot();
 }

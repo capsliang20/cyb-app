@@ -54,6 +54,18 @@ public interface RecommendationMapper {
     @ResultType(List.class)
     List<Integer> useridRmdByUserid(@Param("user_id") Integer user_id);
 
+    @Select("select id from user ORDER BY focus_rate DESC ")
+    @ResultType(List.class)
+    List<Integer> topHotUserId();
+
+    @Select("select id from articles ORDER BY click_rate DESC ")
+    @ResultType(List.class)
+    List<Integer> topHotArticleId();
+
+    @Select("select id from projects ORDER BY click_rate DESC ")
+    @ResultType(List.class)
+    List<Integer> topHotProjectId();
+
     @Select("select name from modules where id =#{id}")
     @ResultType(String.class)
     String  moduleNameByID(@Param("id") Integer id);

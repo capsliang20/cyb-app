@@ -74,6 +74,20 @@ public class RecommendationController {
         }
     }
 
+    @RequestMapping(value="hot", method = RequestMethod.GET)
+    ReturnType hot( HttpServletRequest httpServletRequest){
+        log.info("recommendation hot.");
+        Map data = new HashMap();
+        List<User> users_rmd = recommendationService.user_hot();
+        List<Article> article_rmd = recommendationService.article_hot();
+        List<Project> project_rmd = recommendationService.project_hot();
+        data.put("articles", article_rmd);
+        data.put("projects", project_rmd);
+        data.put("users", users_rmd);
+        return ReturnType.ok("success", data);
+    }
+
+
     @RequestMapping(value = "test", method = RequestMethod.GET)
     ReturnType test(HttpServletRequest httpServletRequest) {
         HttpSession sesssion = httpServletRequest.getSession();
