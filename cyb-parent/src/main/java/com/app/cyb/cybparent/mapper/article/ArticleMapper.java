@@ -55,4 +55,8 @@ public interface ArticleMapper {
 
     @Delete("delete from articles where id =#{id}")
     Integer removeArticle(@Param("id") Integer id);
+
+    @Select("select id from article_comments where article_id =#{articleId}")
+    @ResultType(List.class)
+    List<Integer> commentIdByArticleId(@Param("articleId") Integer articleId);
 }

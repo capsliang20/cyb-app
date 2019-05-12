@@ -25,4 +25,5 @@ public class CommentServicelmpl implements CommentService {
     public List<Comment> queryComment(Integer articleId){
         return commentMapper.queryComment(articleId);
     };
+
 }
