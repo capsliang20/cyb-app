@@ -47,16 +47,12 @@ public class articleController {
         Article article = new Article(id, "", "", 0,0,"",0);
         article = ArticleService.queryArticle(id);
         article.setClickRate(article.getClickRate()+1);
-        data.put("userId", article.getUserId());
-        data.put("title", article.getTitle());
-        data.put("content", article.getContent());
-        data.put("clickRate", article.getClickRate());
-        data.put("moduleName", article.getModuleName());
-        data.put("followRate", article.getFollowRate());
-        data.put("commentList",CommentService.queryComment(id));
-        data.put("code", 1);
-
+        data.put("article", article);
+        //data.put("commentList",CommentService.queryComment(id));
+        List<Comment> comments = ArticleService.getComment(id);
+        data.put("comment", comments);
         return ReturnType.ok("success", data);
+
     };
 
     @RequestMapping(value = "createArticle", method = RequestMethod.GET)

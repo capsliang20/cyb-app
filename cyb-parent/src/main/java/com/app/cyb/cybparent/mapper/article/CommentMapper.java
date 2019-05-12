@@ -14,7 +14,7 @@ public interface CommentMapper {
     @Options(useGeneratedKeys = true,keyProperty = "id")
     Integer insertComment(Comment comment);
 
-    @Select("select id,article_id,type,article_comment_id,content,time from article_comment where article_id =#{articleId}")
+    @Select("select id,article_id,type,article_comment_id,content,time from article_comments where article_id =#{articleId}")
     @Results(id = "commentMap",value = {
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
             @Result(column = "article_id",property = "articleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
@@ -25,6 +25,19 @@ public interface CommentMapper {
     })
 //    @ResultType(List.class)
     List<Comment> queryComment(@Param("articleId") Integer articleId);
+
+    @Select("select id,article_id,type,article_comment_id,content,time from article_comments where id =#{id}")
+    @Results(id = "commentMap1",value = {
+            @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "article_id",property = "articleId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "type",property = "type",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "article_comment_id",property = "articleCommentId",jdbcType = JdbcType.INTEGER,javaType = Integer.class),
+            @Result(column = "content",property = "content",jdbcType = JdbcType.VARCHAR,javaType = String.class),
+            @Result(column = "time",property = "time",jdbcType = JdbcType.DATE,javaType = Date.class)
+    })
+//    @ResultType(List.class)
+    Comment commentById(@Param("id") Integer id);
+
 
 
 
