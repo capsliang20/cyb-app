@@ -1,7 +1,6 @@
 package com.app.cyb.cybparent.api.article;
 import com.app.cyb.cybparent.entity.article.Article;
 import com.app.cyb.cybparent.entity.article.Comment;
-
 import java.util.List;
 
 public interface ArticleService {
@@ -14,5 +13,4 @@ public interface ArticleService {
     Integer removeArticle(Integer id);
     String moduleName(Integer moduleId);
     List<Comment> getComment(Integer articleId);
-
 }

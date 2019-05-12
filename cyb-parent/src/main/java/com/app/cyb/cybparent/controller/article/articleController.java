@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,10 +32,12 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @Slf4j
 @RequestMapping(value = "article")
+
 public class articleController {
 
     @Resource
     ArticleService ArticleService;
+    CommentService CommentService;
 
     //show article details
     //即点开文章之后
@@ -46,10 +47,15 @@ public class articleController {
         Article article = new Article(id, "", "", 0,0,"",0);
         article = ArticleService.queryArticle(id);
         article.setClickRate(article.getClickRate()+1);
-        data.put("article", article);
-        //data.put("commentList",CommentService.queryComment(id));
-        List<Comment> comments = ArticleService.getComment(id);
-        data.put("comment", comments);
+        data.put("userId", article.getUserId());
+        data.put("title", article.getTitle());
+        data.put("content", article.getContent());
+        data.put("clickRate", article.getClickRate());
+        data.put("moduleName", article.getModuleName());
+        data.put("followRate", article.getFollowRate());
+        data.put("commentList",CommentService.queryComment(id));
+        data.put("code", 1);
+
         return ReturnType.ok("success", data);
     };
 

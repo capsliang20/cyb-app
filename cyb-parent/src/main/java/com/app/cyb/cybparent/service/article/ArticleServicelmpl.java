@@ -2,13 +2,9 @@ package com.app.cyb.cybparent.service.article;
 
 import com.app.cyb.cybparent.api.article.ArticleService;
 import com.app.cyb.cybparent.entity.article.Article;
-import com.app.cyb.cybparent.entity.article.Comment;
 import com.app.cyb.cybparent.mapper.article.ArticleMapper;
-import com.app.cyb.cybparent.mapper.article.CommentMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -18,9 +14,6 @@ import javax.annotation.Resource;
 public class ArticleServicelmpl implements ArticleService {
     @Resource
     ArticleMapper articleMapper;
-    @Resource
-    CommentMapper commentMapper;
-
 
     @Override
     public Integer insertArticle(Article article){
@@ -61,16 +54,5 @@ public class ArticleServicelmpl implements ArticleService {
     public Integer removeArticle(Integer id){
         return articleMapper.removeArticle(id);
     };
-
-    @Override
-    public List<Comment> getComment(Integer articleId){
-        List<Integer> commentId = articleMapper.commentIdByArticleId(articleId);
-        List<Comment> comments = new ArrayList<>();
-        for(int i= 0; i < commentId.size(); ++i){
-            Comment comment = commentMapper.commentById(commentId.get(i));
-            comments.add(comment);
-        }
-        return comments;
-    }
 
 }

@@ -43,7 +43,7 @@ public class commentController {
     ReturnType commentToArticle(@Param("id") Integer id,@Param("userId") Integer userId,@Param("content") String content,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
         Date time = new Date();
-        Comment comment = new Comment(0,id,0,0,content,time);
+        Comment comment = new Comment(0,userId,id,0,0,content,time);
         CommentService.insertComment(comment);
         data.put("time", time);
         data.put("code", 1);
@@ -51,10 +51,10 @@ public class commentController {
     };
 
     @RequestMapping(value = "commentToComment", method = RequestMethod.POST)
-    ReturnType commentToComment(@Param("commentId") Integer id,@Param("userId") Integer userId,@Param("content") String content,HttpServletRequest httpServletRequest) {
+    ReturnType commentToComment(@Param("commentId") Integer id,@Param("articleId") Integer articleId,@Param("userId") Integer userId,@Param("content") String content,HttpServletRequest httpServletRequest) {
         Map data = new HashMap();
         Date time = new Date();
-        Comment comment = new Comment(0,0,1,id,content,time);
+        Comment comment = new Comment(0,userId,articleId,1,id,content,time);
         CommentService.insertComment(comment);
         data.put("time", time);
         data.put("code", 1);

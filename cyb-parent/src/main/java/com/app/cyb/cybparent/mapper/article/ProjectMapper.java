@@ -52,7 +52,7 @@ public interface ProjectMapper {
     Project queryProject(@Param("id") Integer id);
 
 
-    @Update("update projects set image_address =#{imageAddress},company =#{company},website =#{website},establishtime =#{establishTime},address =#{address},abstr =#{abstr},state =#{state} where id =#{id}")
+    @Update("update projects set image_address =#{imageAddress},company =#{company},website =#{website},focus_rate =#{focusRate},establishtime =#{establishTime},address =#{address},abstract =#{abstr},state =#{state} where id =#{id}")
     Integer updateProject(Project project);
 
     @Delete("delete from projects where id =#{id}")
